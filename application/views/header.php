@@ -27,45 +27,16 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url('template/css/custom.css')?>">
   <script src="<?= base_url('template/js/modernizr.js')?>"></script> <!-- Modernizr -->
+  <link href="<?= base_url('template/vendor/mdi-font/css/material-design-iconic-font.min.css')?>" rel="stylesheet" media="all">
 
-  <!-- Bootstrap 
-        <link href=<?= base_url("template/boot/vendors/bootstrap/dist/css/bootstrap.css"); ?> rel="stylesheet">
-        
-        <link href=<?= base_url("template/boot/vendors/font-awesome/css/font-awesome.min.css") ?> rel="stylesheet">
-         NProgress 
-        <link href=<?= base_url("template/boot/vendors/nprogress/nprogress.css") ?> rel="stylesheet">
-         iCheck 
-        <link href=<?= base_url("template/boot/vendors/iCheck/skins/flat/green.css") ?> rel="stylesheet">
+    <link href="<?= base_url('template/vendor/font-awesome/css/font-awesome.min.css')?>" rel="stylesheet" media="all">
 
-         
-        <link href=<?= base_url("template/boot/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css") ?> rel="stylesheet">
-        
-        <link href=<?= base_url("template/boot/vendors/jqvmap/dist/jqvmap.min.css") ?> rel="stylesheet"/>
-        
-        <link href=<?= base_url("template/boot/vendors/bootstrap-daterangepicker/daterangepicker.css"); ?> rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 
-        
-        <link href=<?= base_url("template/boot/vendors/pnotify/dist/pnotify.css"); ?> rel="stylesheet">
-        <link href=<?= base_url("template/boot/vendors/pnotify/dist/pnotify.buttons.css"); ?> rel="stylesheet">
-        <link href=<?= base_url("template/boot/vendors/pnotify/dist/pnotify.nonblock.css"); ?> rel="stylesheet">
-        
-        <link href=<?= base_url("template/boot/build/css/custom.css"); ?> rel="stylesheet">
-        
-        <link href=<?= base_url("template/boot/vendors/dropzone/dist/min/dropzone.min.css"); ?> rel="stylesheet">
-        
-        <link href=<?= base_url("template/boot/vendors/fancybox/dist/jquery.fancybox.min.css"); ?> rel="stylesheet">
-        
-        <link href=<?= base_url("template/boot/vendors/bootstrap-daterangepicker/daterangepicker.css"); ?> rel="stylesheet">
-        
-        <link href=<?= base_url("template/boot/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css") ?> rel="stylesheet">
+<link href="<?= base_url('template/vendor/select2/select2.min.css')?>" rel="stylesheet" media="all">
 
-        
-        <link href=<?= base_url("template/boot/vendors/fullcalendar/dist/fullcalendar.min.css"); ?> rel="stylesheet">
-        <link href=<?= base_url("template/boot/vendors/fullcalendar/dist/fullcalendar.print.css"); ?> rel="stylesheet" media="print">
+<link href="<?= base_url('template/css/main.css')?>" rel="stylesheet" media="all">
 
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    [endif]-->
 
 </head>
 <body id="page-top" class="politics_version">
@@ -75,7 +46,7 @@
         <div id="main-ld">
       <div id="loader"></div>  
     </div>
-    </div><!-- end loader -->
+    </div>
     <!-- END LOADER -->
   
     <!-- Navigation -->
@@ -114,44 +85,17 @@
         <div class="slider-img-full">
           <img src="<?= base_url('template/uploads/slider-01.jpg')?>" alt="" />
         </div>
-        <div class="container">
-          <div class="slider-content text-white">
-            <div class="in-box">
-              <h2>Awesome Restaurant, Best Recipes for Dinner </h2>
-              <p>Specialized in design and coding graphics and websites.</p>
-              <a class="btn-slider hvr-radial-in" href="#">Learn More</a>
-            </div>
-          </div>
-        </div>
       </div>  
       
       <div class="item slider-screen">
         <div class="slider-img-full">
           <img src="<?= base_url('template/uploads/slider-02.jpg')?>" alt="" />
         </div>
-        <div class="container">
-          <div class="slider-content text-white">
-            <div class="in-box">
-              <h2>Awesome Restaurant, Best Recipes for Dinner</h2>
-              <p>Specialized in design and coding graphics and websites.</p>
-              <a class="btn-slider hvr-radial-in" href="#">Learn More</a>
-            </div>
-          </div>
-        </div>
       </div>
       
       <div class="item slider-screen">
         <div class="slider-img-full">
           <img src="<?= base_url('template/uploads/slider-03.jpg')?>" alt="" />
-        </div>
-        <div class="container">
-          <div class="slider-content text-white">
-            <div class="in-box">
-              <h2>Awesome Restaurant, Best Recipes for Dinner</h2>
-              <p>Specialized in design and coding graphics and websites.</p>
-              <a class="btn-slider hvr-radial-in" href="#">Learn More</a>
-            </div>
-          </div>
         </div>
       </div>
       
@@ -166,18 +110,8 @@
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
     <!-- ALL JS FILES -->
-    <script src="<?= base_url('template/js/all.js')?>"></script>
+    
   <!-- Camera Slider -->
-  <script src="<?= base_url('template/js/jquery.mobile.customized.min.js')?>"></script>
-  <script src="<?= base_url('template/js/jquery.easing.1.3.js')?>"></script> 
-  <script src="<?= base_url('template/js/parallaxie.js')?>"></script>
-  <script src="<?= base_url('template/js/headline.js')?>"></script>
-  <script src="<?= base_url('template/js/owl.carousel.js')?>"></script>
-  <script src="<?= base_url('template/js/jquery.nicescroll.min.js')?>"></script>
-  <!-- Contact form JavaScript -->
-    <script src="<?= base_url('template/js/jqBootstrapValidation.js')?>"></script>
-    <script src="<?= base_url('template/js/contact_me.js')?>"></script>
-    <!-- ALL PLUGINS -->
-    <script src="<?= base_url('template/js/custom.js')?>"></script>
+  
 </body>
 </html>

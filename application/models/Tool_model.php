@@ -283,8 +283,8 @@ class Tool_model extends CI_Model {
     {
         $this->db->select('v.*, p.*');
         $this->db->from('VentTCTemp v');
-        $this->db->join('productos p', 'p.idProducto=v.idProd');
-        $this->db->where('v.idUs', $this->session->id);
+        $this->db->join('productos p', 'p.id=v.idProd');
+        //$this->db->where('v.idUs', $this->session->id);
         $res = $this->db->get();
        if($res->num_rows() > 0)
         {

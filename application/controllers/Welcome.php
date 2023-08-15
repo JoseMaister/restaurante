@@ -25,6 +25,6 @@ class Welcome extends CI_Controller {
 	}
 	public function inventario(){
 		$this->load->view('header');
-		$this->load->view('inventario');
+		$this->load->view('toolcrib/inventario');
 	}
 }

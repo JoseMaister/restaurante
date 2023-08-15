@@ -137,7 +137,7 @@
         
         <div class="col-md-4 col-sm-6 gallery-grid gal_b gal_a">
           <div class="gallery-single fix">
-            <img src="uploads/gallery_img-04.jpg" class="img-fluid" alt="Image">
+            <img src="<?= base_url('template/uploads/gallery_img-04.jpg')?>" class="img-fluid" alt="Image">
             <div class="img-overlay">
               <h3>Vegetable Food</h3>
               <a href="<?= base_url('template/uploads/gallery_img-04.jpg')?>" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
@@ -202,4 +202,15 @@
   
   
 
+    <script src="<?= base_url('template/js/all.js')?>"></script>
     
+  <script src="<?= base_url('template/js/jquery.easing.1.3.js')?>"></script> 
+  <script src="<?= base_url('template/js/parallaxie.js')?>"></script>
+  <script src="<?= base_url('template/js/headline.js')?>"></script>
+  <script src="<?= base_url('template/js/owl.carousel.js')?>"></script>
+  <script src="<?= base_url('template/js/jquery.nicescroll.min.js')?>"></script>
+  <!-- Contact form JavaScript -->
+    <script src="<?= base_url('template/js/jqBootstrapValidation.js')?>"></script>
+    <script src="<?= base_url('template/js/contact_me.js')?>"></script>
+    <!-- ALL PLUGINS -->
+    <script src="<?= base_url('template/js/custom.js')?>"></script>
