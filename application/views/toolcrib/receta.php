@@ -36,7 +36,7 @@
                            <td><?= $elem->preciodlls ?></td>
                            <td><?= $elem->preciounitario ?></td>
                            <td>
-                              <form method="POST" action=<?= base_url('toolcrib/registrarVenta') ?>>
+                              <form method="POST" action=<?= base_url('toolcrib/registrarRecetaTemp') ?>>
                                  <input id='cantidad'  type='number' name='cantidad' min='0' max='10' class='border' style="width: 115px;" required>
                                  <input id='producto' style='display: inline;' type='hidden' name='producto' value="<?= $elem->id ?>">
                                  <button type='submit'class='btn btn-primary btn-sm'><i class='fa fa-pencil'></i> Agregar </button>
@@ -51,8 +51,8 @@
                </div>
             </div>
              <div class="container">
-               <br>
-                <?php
+               <br
+>                <?php
 
                                     if($venta) { 
                                     //echo var_dump($venta->result());die();
@@ -87,7 +87,7 @@
                                                 <td><?= $elem->cantidad ?></td>
                                                 <td><?= $elem->unidadReceta ?></td>
                                                 <td>
-                                                <a href=<?= base_url("toolcrib/cancelarProducto/".$elem->idvt); ?>><button type="button"class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Eliminar </button></a>                                                
+                                                <a href=<?= base_url("toolcrib/cancelarProducto/".$elem->id); ?>><button type="button"class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Eliminar </button></a>                                                
                                                 </td>
                                                
                                             </tr>
@@ -103,7 +103,7 @@
                                       
                                     ?>
                                    <div class="p-t-30">
-                            <button class="btn btn--radius btn--green">Registrar Subproducto</button>
+                            <button class="btn btn--radius btn--green" onclick="receta()">Registrar Receta</button>
                         </div>
                                     
 
@@ -114,7 +114,27 @@
                </div>
             </div>
          </div>
+<div id="mdlReceta" class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+           <div class="card-body">
+                    <h2 class="title" style="color:black;">Registrar Receta</h2>
+                    <form method="POST" action=<?= base_url('toolcrib/registrarReceta') ?>  enctype="multipart/form-data">
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Nombre de la Receta" name="nombre" required>
+                        </div>
+                        <div class="input-group">
+                            <textarea rows="10" cols="50" name="procedimiento"></textarea>
+                        </div>
 
+                        <div class="p-t-30">
+                            <button class="btn btn--radius btn--green" type="submit">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
 
              <script src="<?= base_url('template/js/all.js')?>"></script>
     
@@ -128,3 +148,9 @@
     <script src="<?= base_url('template/js/contact_me.js')?>"></script>
     <!-- ALL PLUGINS -->
     <script src="<?= base_url('template/js/custom.js')?>"></script>
+    <script type="text/javascript">
+     function receta(){
+      $('#mdlReceta').modal('show');
+     }
+
+</script>

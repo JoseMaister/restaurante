@@ -18,13 +18,26 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+	function __construct() {
+        parent::__construct();
+     //   $this->load->library('correos_po');
+        $this->load->model('Tool_model');
+        $this->load->model('conexion_model', 'Conexion');
+        //$this->load->library('AOS_funciones');
+    }
 	public function index()
 	{
+		$this->load->model('Tool_model');
+		$data['receta'] = $this->Tool_model->recetas();
 		$this->load->view('header');
-		$this->load->view('welcome_message');
+		$this->load->view('welcome_message', $data);
 	}
-	public function inventario(){
+	public function ver($id)
+	{
+		$this->load->model('Tool_model');
+		$data['ingrediente'] = $this->Tool_model->recetas_detalles($id);
+		$data['receta'] = $this->Tool_model->get_receta($id);
 		$this->load->view('header');
-		$this->load->view('toolcrib/inventario');
+		$this->load->view('ver', $data);
 	}
 }

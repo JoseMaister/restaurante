@@ -18,6 +18,7 @@
                            <th scope="col">Unidad Receta</th>
                            <th scope="col">Precio DLLS</th>
                            <th scope="col">Precio Unitario</th>
+                           <th scope="col">Opciones</th>
                         </tr>
                      </thead>
                      <tbody>
@@ -32,6 +33,9 @@
                            <td><?= $elem->unidadEmpaque ?></td>
                            <td><?= $elem->preciodlls ?></td>
                            <td><?= $elem->preciounitario ?></td>
+                           <td class="text-center">
+                              <a href=<?= base_url("toolcrib/verProducto/".$elem->id); ?>><button type="button"class="btn btn-success btn-xs"><i class="fa fa-eye"></i> Existencias </button></a>
+                           </td>
                         </tr>
                         <?php $i++; }
                            }

@@ -122,8 +122,8 @@ class Tool_model extends CI_Model {
 
         $this->db->select('SUM(u.cantidad) as cantidad');
         $this->db->from('productos p');
-        $this->db->join('ubiProds u', 'p.idProducto=u.idProd');
-        $this->db->where('p.idProducto',$idp);
+        $this->db->join('ubiProds u', 'p.id=u.idProd');
+        $this->db->where('p.id',$idp);
         
         
         $result = $this->db->get();
@@ -136,7 +136,7 @@ class Tool_model extends CI_Model {
     public function ubicaciones($idp){
         $this->db->select('u.*, p.*');        
         
-        $this->db->join('productos p', 'p.idProducto=u.idProd');
+        $this->db->join('productos p', 'p.id=u.idProd');
         $this->db->where('idProd',$idp);
         $res = $this->db->get('ubiProds u');
          if($res->num_rows() > 0)
@@ -151,7 +151,7 @@ class Tool_model extends CI_Model {
     public function ubicacionAjuste($idp){
         $this->db->select('u.*, p.*');        
         
-        $this->db->join('productos p', 'p.idProducto=u.idProd');
+        $this->db->join('productos p', 'p.id=u.idProd');
         $this->db->where('cantidad >',0);
         $this->db->where('idProd',$idp);
         $res = $this->db->get('ubiProds u');
@@ -168,7 +168,7 @@ class Tool_model extends CI_Model {
      public function locacion($idUbi){
         $this->db->select('u.*, p.*');        
         
-        $this->db->join('productos p', 'p.idProducto=u.idProd');
+        $this->db->join('productos p', 'p.id=u.idProd');
         $this->db->where('idUbi',$idUbi);
         $res = $this->db->get('ubiProds u');
          if($res->num_rows() > 0)
@@ -205,7 +205,7 @@ class Tool_model extends CI_Model {
 
     function getProds($idp)
     {
-        $this->db->where('idProducto',$idp);
+        $this->db->where('id',$idp);
         $res = $this->db->get('productos');
         if($res->num_rows() > 0)
         {
@@ -246,7 +246,7 @@ class Tool_model extends CI_Model {
     }
     function getProd($idp)
     {
-        $this->db->where('idProducto',$idp);
+        $this->db->where('id',$idp);
         $res = $this->db->get('productos');
         if($res->num_rows() > 0)
         {
@@ -321,7 +321,7 @@ class Tool_model extends CI_Model {
     public function registrarVentaDet($datos) {
         $this->db->db_debug = FALSE;
     
-        if($this->db->insert('detalleVentTC', $datos)){
+        if($this->db->insert('subproductos', $datos)){
           return $this->db->insert_id();
          // echo var_dump($datos);die();
         }
@@ -330,7 +330,7 @@ class Tool_model extends CI_Model {
       }
     }
     function delVentTemp(){
-        $this->db->where('idUs', $this->session->id);
+        $this->db->where('1', '1');
         $this->db->delete('VentTCTemp');
         if ($this->db->affected_rows() > 0) {
             return TRUE;
@@ -599,7 +599,106 @@ function pedidosPendientes(){
         }
     }
     
+public function registrarRecetaTemp($datos) {
+    //$this->db->set('idUs', $this->session->id, FALSE);
+      if($this->db->insert('receta_temp', $datos))
+      {
+        return $this->db->insert_id();
+      }
+      else
+      {
+        return 0;
+      }
+        
+    }
+    function recetatemp()
+    {
+        $this->db->select('v.*, p.*');
+        $this->db->from('receta_temp v');
+        $this->db->join('productos p', 'p.id=v.id_productos');
+        //$this->db->where('v.idUs', $this->session->id);
+        $res = $this->db->get();
+       if($res->num_rows() > 0)
+        {
+            return $res;
 
+
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public function registrarReceta($datos) {
+        $this->db->db_debug = FALSE;
+    
+        if($this->db->insert('receta', $datos)){
+          return $this->db->insert_id();
+         // echo var_dump($datos);die();
+        }
+        else {
+          return FALSE;
+      }
+    }
+    public function registrarRecetaDet($datos) {
+        $this->db->db_debug = FALSE;
+    
+        if($this->db->insert('receta_detalles', $datos)){
+          return $this->db->insert_id();
+         // echo var_dump($datos);die();
+        }
+        else {
+          return FALSE;
+      }
+    }
+    function delRecetaTemp(){
+        $this->db->where('1', '1');
+        $this->db->delete('receta_temp');
+        if ($this->db->affected_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    public function recetas(){
+        $query = $this->db->get('receta');
+        if ($query->num_rows() > 0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
+    }
+     public function recetas_detalles($id){
+         $this->db->select(' rd.*, p.ingrediente');
+        $this->db->from('receta_detalles rd');
+        $this->db->join('productos p', 'p.id=rd.ingredientes');
+        $this->db->where('rd.id_receta',$id);
+        //$this->db->where('v.idUs', $this->session->id);
+        $res = $this->db->get();
+       if($res->num_rows() > 0)
+        {
+            return $res;
+
+
+        }
+        else
+        {
+            return false;
+        }
+    }
+    function get_receta($id)
+    {
+        $this->db->where('id',$id);
+        $res = $this->db->get('receta');
+        if($res->num_rows() > 0)
+        {
+            return $res->row();
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 
 

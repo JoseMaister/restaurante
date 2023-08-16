@@ -107,7 +107,7 @@
                                       
                                     ?>
                                    <div class="p-t-30">
-                            <button class="btn btn--radius btn--green">Registrar Subproducto</button>
+                            <button class="btn btn--radius btn--green" onclick="subproducto()">Registrar Subproducto</button>
                         </div>
                                     
 
@@ -118,6 +118,42 @@
                </div>
             </div>
          </div>
+
+<div id="mdlSubproducto" class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+           <div class="card-body">
+                    <h2 class="title" style="color:black;">Agregar Producto</h2>
+                    <form method="POST" action=<?= base_url('toolcrib/registrar_subproducto') ?>  enctype="multipart/form-data">
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Nombre del Producto" name="producto" required>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="unidadEmpaque">
+                                            <option disabled="disabled" selected="selected">Unidad de Empaque</option>
+                                            <option value="LB">LB</option>
+                                            <option value="OZ">OZ</option>
+                                            <option value="rolls">ROLLS</option>
+                                            <option value="EA">EA</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-t-30">
+                            <button class="btn btn--radius btn--green" type="submit">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+
+
 
          <script src="<?= base_url('/template/js/jquery-3.3.1.min.js')?>"></script>
          <script src="<?= base_url('/template/js/popper.min.js')?>"></script>
@@ -138,4 +174,10 @@
    </div>
    <!-- end container -->
 </div>
+<script type="text/javascript">
+     function subproducto(){
+      $('#mdlSubproducto').modal('show');
+     }
+
+</script>
 <!-- end section -->
