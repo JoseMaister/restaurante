@@ -1,20 +1,17 @@
-<link rel="stylesheet" href="<?= base_url('/template/css/style.css')?>">
-      <link href="<?= base_url('template/vendor/mdi-font/css/material-design-iconic-font.min.css')?>" rel="stylesheet" media="all">
-    <link href="<?= base_url('template/vendor/font-awesome-4.7/css/font-awesome.min.css')?>/" rel="stylesheet" media="all">
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-<link href="<?= base_url('template/vendor/select2/select2.min.css')?>/" rel="stylesheet" media="all">
-<link href="<?= base_url('template/css/main.css')?>" rel="stylesheet" media="all">
+<link rel="stylesheet" href="<?= base_url('/template/fonts/icomoon/style.css')?>">
+
 
       <title></title>
       </head>
       <body>
          <div class="content">
             
-            <div class="container">
-               <h2 class="title">Agregar SubProducto</h2>
+            <div class="container section-title text-center" >
+              <br>
+               <h2 class="title" >Agregar SubProducto</h2>
                <h2 class="mb-5"></h2>
                <div class="table-responsive custom-table-responsive">
-                  <table class="table custom-table">
+                  <table class="table">
                      <thead>
                         <tr>
                            <th scope="col">Proveedor</th>
@@ -43,7 +40,7 @@
                               <form method="POST" action=<?= base_url('toolcrib/registrarVenta') ?>>
                                  <input id='cantidad'  type='number' name='cantidad' min='0' max='10' class='border' style="width: 115px;" required>
                                  <input id='producto' style='display: inline;' type='hidden' name='producto' value="<?= $elem->id ?>">
-                                 <button type='submit'class='btn btn-primary btn-sm'><i class='fa fa-pencil'></i> Agregar </button>
+                                 <button type='submit'class='btn btn-success btn-sm'><i class='fa fa-plus'></i> Agregar </button>
                               </form>
                            </td>
                         </tr>
@@ -54,7 +51,7 @@
                   </table>
                </div>
             </div>
-             <div class="container">
+             <div class="container section-title text-center">
                <br>
                 <?php
 
@@ -65,7 +62,7 @@
                <h2 class="title">Ingredientes</h2>
                <h2 class="mb-5"></h2>
                <div class="table-responsive custom-table-responsive">
-                  <table class="table custom-table">
+                  <table class="table">
                      <thead>
                         <tr>
                            <th scope="col">Producto</th>

@@ -1,23 +1,10 @@
-<!-- page content -->
-<div class="right_col" role="main">
-    <div class="">
-
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Editar Producto</h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <form method="POST" action=<?= base_url('toolcrib/updateProducto') ?> class="form-horizontal form-label-left" novalidate enctype="multipart/form-data">
+<div>
+   <div class="wrapper wrapper--w960">
+      <div class="card card-2">
+         <div class="card-heading"></div>
+         <div class="card-body">
+                        <form method="POST" action=<?= base_url('toolcrib/updateProducto') ?> class="form-horizontal form-label-left"  enctype="multipart/form-data">
+                            <h3>Editar Ingrediente</h3>
 <!--
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Codigo <span class="required">*</span>
@@ -40,35 +27,35 @@
                             </div>-->
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Ubicacion <span class="required">*</span>
+                                <label class="control-label" for="name">Ubicacion <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="hidden" name="idProducto" value=<?= $ubicaciones->idProd ?>>
-                                     <input readonly style="text-transform: uppercase;" id="ubicacion" class="form-control col-md-7 col-xs-12" name="ubicacion" required="required" value=<?=$ubicaciones->ubicacion?>>
+                                     <input readonly style="text-transform: uppercase;" id="ubicacion" class="form-control" name="ubicacion" required="required" value=<?=$ubicaciones->ubicacion?>>
 
                                 </div>
                             </div>
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Stock <span class="required">*</span>
+                                <label class="control-label" for="name">Stock <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input readonly style="text-transform: uppercase;" id="stock" class="form-control col-md-7 col-xs-12" name="stock" required="required" type="number" value=<?=$ubicaciones->cantidad?>>
+                                    <input readonly style="text-transform: uppercase;" id="stock" class="form-control" name="stock" required="required" type="number" value=<?=$ubicaciones->cantidad?>>
                                 </div>
                             </div>
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Cantidad <span class="required">*</span>
+                                <label class="control-label" for="name">Cantidad <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input  style="text-transform: uppercase;" id="cantidad" class="form-control col-md-7 col-xs-12" name="cantidad" required="required" type="number">
+                                    <input  style="text-transform: uppercase;" id="cantidad" class="form-control" name="cantidad" required="required" type="number">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Comentarios <span class="required">*</span>
+                                <label class="control-label" for="name">Comentarios <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea style="text-transform: uppercase;" id="comentario" class="form-control col-md-7 col-xs-12" name="comentario" placeholder="" required="required"></textarea>
+                                    <textarea style="text-transform: uppercase;" id="comentario" class="form-control" name="comentario" placeholder="" required="required"></textarea>
                                 </div>
                             </div>
                             
@@ -85,7 +72,7 @@
                         
 
 
-                    </div>
+                    
                 </div>
             </div>
         </div>

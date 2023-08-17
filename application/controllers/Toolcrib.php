@@ -280,6 +280,17 @@ function registrarReceta(){
     redirect(base_url('toolcrib/inventario'));
 }
 
+function ajax_ingredientess(){
+    $id=$this->input->post('id');
+    $query = "SELECT sp.*, p.ingrediente FROM subproductos sp JOIN productos p on sp.id_productos=p.id WHERE sp.id_productos = ".$id;
+
+    $res = $this->Conexion->consultar($query);
+
+    if ($res) {
+        echo json_encode($res);
+    }
+}
+
 
 
 }

@@ -88,19 +88,7 @@ class Tool_model extends CI_Model {
             return $query;
         } else {
             return FALSE;
-        }/*
-
-        $this->db->select(' p.*, SUM(u.cantidad) as cantidad');
-        $this->db->from('productos p');
-        $this->db->join('ubiProds u', 'p.idProducto=u.idProd');
-        $this->db->group_by('p.idProducto');
-        
-        $result = $this->db->get();
-        if ($result->num_rows() > 0) {
-            return $result;
-        } else {
-            return false;
-        }*/
+        }
     }
     public function ProdPedidos(){
         

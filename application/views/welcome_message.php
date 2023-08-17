@@ -2,7 +2,6 @@
    <div class="container-fluid">
       <div class="section-title text-center">
          <h3>Menu</h3>
-         <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
       </div>
       <!-- end title -->
       <div class="row">
@@ -29,14 +28,14 @@
 </div>
 <!-- end section -->
 
-
+<!--
 <div id="gallery" class="section wb">
    <div class="container-fluid">
       <div class="section-title text-center">
          <h3>Gallery</h3>
          <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
       </div>
-      <!-- end title -->
+     
       <div class="gallery-menu text-center row">
          <div class="col-md-12">
             <div class="button-group filter-button-group">
@@ -132,7 +131,7 @@
          </div>
       </div>
    </div>
-</div>
+</div>-->
 <script src="<?= base_url('template/js/all.js')?>"></script>
 <script src="<?= base_url('template/js/jquery.easing.1.3.js')?>"></script> 
 <script src="<?= base_url('template/js/parallaxie.js')?>"></script>

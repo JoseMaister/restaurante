@@ -354,11 +354,13 @@ a img.aligncenter {
 .main-banner{
 	height: 100%;
 	position: relative;
+    height: 400px;
 }
 
 .main-banner{
     width: 100%;
 	text-align: center;
+    height: 400px;
 }
 .main-banner::after {
     content: " ";
@@ -370,6 +372,7 @@ a img.aligncenter {
     background-color: #000;
     z-index: 0;
     opacity: .6;
+    height: 30px;
 }
 .heading{
 	color: #fff;
@@ -491,11 +494,13 @@ a img.aligncenter {
 	position: absolute;
 	top: 50%;
 	left: 0px;
+    height: 400px;
 }
 .slider-new-2.owl-carousel .owl-nav .owl-next{
 	position: absolute;
 	top: 50%;
 	right: 0px;
+    height: 400px;
 }
 
 .slider-new-2.owl-carousel .owl-item.active .slider-img-full img{
@@ -505,6 +510,7 @@ a img.aligncenter {
 	-moz-transition: all 2.9s;
 	-webkit-transition: all 2.9s;
 	transition: all 2.9s;
+
 }
 
 
@@ -3058,3 +3064,8 @@ select.mobile-device {
   background-color: #19191d;
   font-weight: 300;
 }
+#slidy-container { 
+  width: 100%; 
+  overflow: hidden; 
+  margin: 0 auto;
+  height: 100%;

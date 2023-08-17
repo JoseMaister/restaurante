@@ -72,7 +72,7 @@ class Conexion_model extends CI_Model {
         return $this->db->insert_id();
     }
 
-    function modificar($tabla, $datos, $funciones = null, $where){
+    function modificar($tabla, $datos, $funciones = null, $where=null){
         if (!is_null($datos))
         {
             foreach ($datos as $key => $value) 
