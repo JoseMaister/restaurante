@@ -687,6 +687,39 @@ public function registrarRecetaTemp($datos) {
             return false;
         }
     }
+    function editar_receta_ingredientes($datos)
+    {
+        if($this->db->insert('receta_detalles', $datos)){
+          return $this->db->insert_id();
+         // echo var_dump($datos);die();
+        }
+        else {
+          return FALSE;
+      }
+    }
+    function receta_detalles()
+    {
+        $this->db->select('v.*, p.*');
+        $this->db->from('receta_detalles v');
+        $this->db->join('productos p', 'p.id=v.ingredientes');
+        //$this->db->where('v.idUs', $this->session->id);
+        $res = $this->db->get();
+       if($res->num_rows() > 0)
+        {
+            return $res;
+
+
+        }
+        else
+        {
+            return false;
+        }
+    }
+    function update_receta($id, $datos)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('receta', $datos);
+    }
 
 
 

@@ -57,18 +57,33 @@
    }
     .procedimiento{
    width: 1000px;
-   margin-left: 100px;
+   margin-top: -110px;
+   margin-left: 400px;
    border-bottom: 20px solid #8dbd56;
    border-bottom-left-radius: 10px;
    border-bottom-right-radius: 10px;
    }
+   #divPadre {
+     display: flex;
+  justify-content: center;;
+}
+#divHijo {
+
+}
 </style>
 <div id="menu" class="section lb">
+   <a href=<?= base_url("toolcrib/editar_receta/".$receta->id); ?>><button type="button"class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i> Editar Receta </button></a>
 <div class="container-fluid">
    <div class="section-title text-center">
       <h3><?= $receta->nombre?></h3>
+      <div id="divPadre">
+         <div class="ser-icon">
+            <img src="<?= 'data:image/bmp;base64,' . base64_encode($receta->foto); ?>" class="img-fluid" alt="" />
+         </div>
+      </div>
    </div>
    <!-- end title -->
+   
    <div class="row">
       <div class="box">
          <h2>Ingredientes</h2>
@@ -82,6 +97,10 @@
                ?>
          </ul>
       </div>
+      <!-- end col -->
+   </div>
+   <div class="row">
+      
       <div class="box procedimiento">
          <h2>Procedimiento</h2>
          <p><?= $receta->procedimiento?></p>  

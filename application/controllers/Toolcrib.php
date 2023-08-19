@@ -244,10 +244,14 @@ function registrarRecetaTemp(){
 
 
 function registrarReceta(){
+     $foto = file_get_contents($_FILES['foto']['tmp_name']);
 
         $datos = array(
             'nombre'=>$this->input->post('nombre'),
             'procedimiento'=>$this->input->post('procedimiento'),
+            'propietario'=>$this->input->post('propietario'),
+            'foto'=>$foto,
+
 
         );
         $this->load->model('tool_model');
@@ -289,6 +293,48 @@ function ajax_ingredientess(){
     if ($res) {
         echo json_encode($res);
     }
+}
+function editar_receta($id){
+
+        $this->load->model('tool_model');
+        $data['receta'] = $this->Tool_model->get_receta($id);
+        $data['venta'] = $this->tool_model->receta_detalles($id);
+        $data['productos']=$this->tool_model->productos();
+
+        $this->load->view('header');
+        $this->load->view('toolcrib/editar_receta', $data);
+    
+
+}
+function editar_receta_ingredientes(){
+    $id_receta =$this->input->post('id_receta');
+        $datos = array(
+            'id_receta'=>$id_receta,
+            'ingredientes' =>$this->input->post('producto'),
+            'cantidad'=>$this->input->post('cantidad'),
+
+        );
+        $this->load->model('tool_model');
+
+        $res = $this->tool_model->editar_receta_ingredientes($datos);
+        redirect(base_url('toolcrib/editar_receta/'.$id_receta));
+}
+function update_receta(){
+    $id_receta =$this->input->post('id_receta');
+     $foto = file_get_contents($_FILES['foto']['tmp_name']);
+
+        $datos = array(
+            'nombre'=>$this->input->post('nombre'),
+            'procedimiento'=>$this->input->post('procedimiento'),
+            'foto'=>$foto,
+            'propietario'=>$this->input->post('propietario'),
+
+        );
+        $this->load->model('tool_model');
+
+        $this->tool_model->update_receta($id_receta,$datos);
+
+    redirect(base_url('welcome/ver/'.$id_receta));
 }
 
 

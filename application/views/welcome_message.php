@@ -11,7 +11,7 @@
          <div class="col-md-3">
             <div class="services-inner-box">
                <div class="ser-icon">
-                  <img src="<?= base_url('template/uploads/menu-img-01.jpg')?>" class="img-fluid" alt="" />
+                  <img src="<?= 'data:image/bmp;base64,' . base64_encode($elem->foto); ?>" class="img-fluid" alt="" />
                </div>
                <h2><?=$elem->nombre?></h2>
                <a class="hvr-radial-in" href="<?= base_url('welcome/ver/'.$elem->id)?>">Ver Receta</a>

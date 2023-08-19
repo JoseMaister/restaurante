@@ -32,9 +32,10 @@
                   <td><?= $elem->preciodlls ?></td>
                   <td><?= $elem->preciounitario ?></td>
                   <td>
-                     <form method="POST" action=<?= base_url('toolcrib/registrarRecetaTemp') ?>>
+                     <form method="POST" action=<?= base_url('toolcrib/editar_receta_ingredientes') ?>>
                         <input id='cantidad'  type='number' name='cantidad' min='0' max='10' class='border' style="width: 115px;" required>
                         <input id='producto' style='display: inline;' type='hidden' name='producto' value="<?= $elem->id ?>">
+                        <input type="hidden" name="id_receta" value="<?=$receta->id?>">
                         <button type='submit'class='btn btn-success btn-sm'><i class='fa fa-plus'></i> Agregar </button>
                      </form>
                   </td>
@@ -61,7 +62,7 @@
                <tr>
                   <th scope="col">Producto</th>
                   <th scope="col">Cantidad</th>
-                  <th scope="col">Unidad de Medida</th>
+                  
                   <th scope="col">Opciones</th>
                </tr>
             </thead>
@@ -73,7 +74,7 @@
                      ?>
                <tr>
                   <td><?= $elem->ingrediente ?></td>
-                  <td><?= $elem->cantidad ?></td>
+                  
                   <td><?= $elem->unidadReceta ?></td>
                   <td>
                      <a href=<?= base_url("toolcrib/cancelarProducto/".$elem->id); ?>><button type="button"class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Eliminar </button></a>                                                
@@ -98,12 +99,13 @@
       <div class="modal-content">
          <div class="card-body">
             <h2 class="title" style="color:black;">Registrar Receta</h2>
-            <form method="POST" action=<?= base_url('toolcrib/registrarReceta') ?>  enctype="multipart/form-data">
+            <form method="POST" action=<?= base_url('toolcrib/update_receta') ?>  enctype="multipart/form-data">
                <div class="input-group">
-                  <input class="input--style-2" type="text" placeholder="Nombre de la Receta" name="nombre" required>
+                  <input type="hidden" name="id_receta" value="<?=$receta->id?>">
+                  <input class="input--style-2" type="text" placeholder="Nombre de la Receta" name="nombre" value="<?=$receta->nombre?>" required>
                </div>
                <div class="input-group">
-                  <textarea rows="10" cols="50" name="procedimiento"></textarea>
+                  <textarea rows="10" cols="50" name="procedimiento"><?=$receta->procedimiento?></textarea>
                </div>
                <div class="row row-space">
                             <div class="col-2">
@@ -111,6 +113,7 @@
                                     <div class="rs-select2 js-select-simple select--no-search">
                                         <select name="propietario">
                                             <option disabled="disabled" selected="selected">Propietario</option>
+                                            <option value="<?=$receta->propietario?>" selected><?=$receta->propietario?></option>
                                             <option value="CHEF">CHEF</option>
                                             <option value="RESTAURANTE">RESTAURANTE</option>
                                         </select>

@@ -97,15 +97,14 @@
                                     ?>
                                     </tbody>
                                     </table>
-                                    
-                                
+                                      <div class="p-t-30">
+                            <button class="btn btn--radius btn--green" onclick="subproducto()">Registrar Subproducto</button>
+                        </div>
                                
                                  <?php }
                                       
                                     ?>
-                                   <div class="p-t-30">
-                            <button class="btn btn--radius btn--green" onclick="subproducto()">Registrar Subproducto</button>
-                        </div>
+                                 
                                     
 
                                     
