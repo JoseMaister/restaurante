@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-08-2023 a las 21:50:54
+-- Tiempo de generación: 20-08-2023 a las 00:41:53
 -- Versión del servidor: 8.0.34-0ubuntu0.20.04.1
 -- Versión de PHP: 7.4.3-4ubuntu2.19
 
@@ -36,21 +36,6 @@ CREATE TABLE `detalleventtc` (
   `cantidad` int NOT NULL,
   `estatus` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `detalleventtc`
---
-
-INSERT INTO `detalleventtc` (`idDVTC`, `idVenta`, `idUs`, `idProd`, `cantidad`, `estatus`) VALUES
-(1, 1, 65, 1, 1, 'ENTREGADO'),
-(2, 2, 65, 3, 1, 'ENTREGADO'),
-(3, 2, 65, 2, 1, 'ENTREGADO'),
-(4, 3, 2, 2, 2, 'ENTREGADO'),
-(5, 3, 2, 3, 1, 'ENTREGADO'),
-(6, 4, 65, 2, 2, 'PENDIENTE'),
-(7, 4, 65, 2, 3, 'PENDIENTE'),
-(8, 5, 65, 2, 1, 'ENTREGADO'),
-(9, 5, 65, 3, 1, 'ENTREGADO');
 
 -- --------------------------------------------------------
 
@@ -87,14 +72,6 @@ CREATE TABLE `productos` (
   `subproducto` int DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `productos`
---
-
-INSERT INTO `productos` (`id`, `proveedor`, `ingrediente`, `cantidadEmpaque`, `unidadReceta`, `preciodlls`, `preciounitario`, `unidadEmpaque`, `subproducto`) VALUES
-(4, 'Ben E Keith', 'Cooked Tripitas', '30', '480', '191.33', '0.399', 'LB', 0),
-(24, NULL, 'FER', NULL, NULL, NULL, NULL, 'OZ', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -104,16 +81,10 @@ INSERT INTO `productos` (`id`, `proveedor`, `ingrediente`, `cantidadEmpaque`, `u
 CREATE TABLE `receta` (
   `id` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `procedimiento` varchar(5000) NOT NULL
+  `procedimiento` varchar(5000) NOT NULL,
+  `foto` longblob NOT NULL,
+  `propietario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `receta`
---
-
-INSERT INTO `receta` (`id`, `nombre`, `procedimiento`) VALUES
-(1, 'webo con jamon', '\r\n1.  Mezcla la Leche Evaporada CARNATION® CLAVEL® con los huevos. En una sartén calienta el aceite y fríe el jamón hasta que este ligeramente dorado, agrega la mezcla anterior, moviendo constantemente hasta que el huevo esté cocido. Ofrece.'),
-(2, 'webo con chorizo', 'Agrega 11/2 cucharada de aceite de oliva en una olla antiadherente y termorresistente. Precalienta por 2-3 minutos a temperatura media. Precalienta el horno a 350 ºF.\r\n2\r\nAgrega cebolla, serrano o jalapeño y el chile fresno. Cocina 6-8 minutos o hasta que estén blandos.\r\n3\r\nCorre los vegetales hacia los costados de la olla y agrega el chorizo en el medio; cocina por 5-6 minutos. Mezcla los vegetales y el chorizo y cocina 1 minuto más.\r\n4\r\nEn un recipiente grande, mezcla los huevos con leche o crema, y agrega los tomates.');
 
 -- --------------------------------------------------------
 
@@ -127,15 +98,6 @@ CREATE TABLE `receta_detalles` (
   `ingredientes` int NOT NULL,
   `cantidad` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `receta_detalles`
---
-
-INSERT INTO `receta_detalles` (`id`, `id_receta`, `ingredientes`, `cantidad`) VALUES
-(1, 1, 4, 1),
-(2, 2, 4, 2),
-(3, 2, 24, 4);
 
 -- --------------------------------------------------------
 
@@ -162,14 +124,6 @@ CREATE TABLE `subproductos` (
   `cantidad` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Volcado de datos para la tabla `subproductos`
---
-
-INSERT INTO `subproductos` (`id`, `id_productos`, `ingredientes`, `cantidad`) VALUES
-(13, 24, 4, 2),
-(14, 24, 4, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -182,15 +136,6 @@ CREATE TABLE `ubiProds` (
   `ubicacion` varchar(50) NOT NULL,
   `cantidad` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `ubiProds`
---
-
-INSERT INTO `ubiProds` (`idUbi`, `idProd`, `ubicacion`, `cantidad`) VALUES
-(3, 2, 'rack-1', 56),
-(4, 3, 'op0', 57),
-(5, 4, 'r1', 70);
 
 -- --------------------------------------------------------
 
@@ -205,14 +150,6 @@ CREATE TABLE `ubiprods` (
   `cantidad` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `ubiprods`
---
-
-INSERT INTO `ubiprods` (`idUbi`, `idProd`, `ubicacion`, `cantidad`) VALUES
-(3, 2, 'rack-1', 56),
-(4, 3, 'op0', 57);
-
 -- --------------------------------------------------------
 
 --
@@ -224,14 +161,6 @@ CREATE TABLE `VentTCTemp` (
   `idProd` int NOT NULL,
   `cantidad` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `VentTCTemp`
---
-
-INSERT INTO `VentTCTemp` (`idvt`, `idProd`, `cantidad`) VALUES
-(10, 4, 2),
-(11, 24, 2);
 
 -- --------------------------------------------------------
 
@@ -246,16 +175,6 @@ CREATE TABLE `venttoolcrib` (
   `estatus` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `venttoolcrib`
---
-
-INSERT INTO `venttoolcrib` (`idToolCrib`, `idUs`, `aprobador`, `estatus`, `fecha`) VALUES
-(2, 65, 65, 'ENTREGADO', '2022-03-29 00:00:00'),
-(3, 2, 65, 'ENTREGADO', '2022-03-29 00:00:00'),
-(4, 65, 65, 'APROBADO', '2022-08-05 00:00:00'),
-(5, 65, 65, 'APROBADO', '2023-03-17 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -289,6 +208,12 @@ ALTER TABLE `receta`
 -- Indices de la tabla `receta_detalles`
 --
 ALTER TABLE `receta_detalles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `receta_temp`
+--
+ALTER TABLE `receta_temp`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -341,19 +266,25 @@ ALTER TABLE `movimientostool`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `receta`
 --
 ALTER TABLE `receta`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `receta_detalles`
 --
 ALTER TABLE `receta_detalles`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `receta_temp`
+--
+ALTER TABLE `receta_temp`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `subproductos`
@@ -365,7 +296,7 @@ ALTER TABLE `subproductos`
 -- AUTO_INCREMENT de la tabla `ubiProds`
 --
 ALTER TABLE `ubiProds`
-  MODIFY `idUbi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idUbi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `ubiprods`
@@ -377,7 +308,7 @@ ALTER TABLE `ubiprods`
 -- AUTO_INCREMENT de la tabla `VentTCTemp`
 --
 ALTER TABLE `VentTCTemp`
-  MODIFY `idvt` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idvt` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `venttoolcrib`

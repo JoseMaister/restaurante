@@ -586,6 +586,24 @@ function pedidosPendientes(){
             return FALSE;
         }
     }
+    function cancelarProductoReceta($idp){
+        $this->db->where('id', $idp);
+        $this->db->delete('receta_temp');
+        if ($this->db->affected_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    function cancelarReceta($idp){
+        $this->db->where('id', $idp);
+        $this->db->delete('receta_detalles');
+        if ($this->db->affected_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
     
 public function registrarRecetaTemp($datos) {
     //$this->db->set('idUs', $this->session->id, FALSE);
@@ -601,7 +619,7 @@ public function registrarRecetaTemp($datos) {
     }
     function recetatemp()
     {
-        $this->db->select('v.*, p.*');
+        $this->db->select('v.*, v.id as idtemp, p.*');
         $this->db->from('receta_temp v');
         $this->db->join('productos p', 'p.id=v.id_productos');
         //$this->db->where('v.idUs', $this->session->id);
@@ -648,7 +666,17 @@ public function registrarRecetaTemp($datos) {
             return FALSE;
         }
     }
-    public function recetas(){
+    public function recetaschef(){
+        $this->db->where('propietario', 'CHEF');
+        $query = $this->db->get('receta');
+        if ($query->num_rows() > 0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
+    }
+     public function recetas(){
+        $this->db->where('propietario', 'RESTAURANTE');
         $query = $this->db->get('receta');
         if ($query->num_rows() > 0) {
             return $query;
@@ -699,7 +727,7 @@ public function registrarRecetaTemp($datos) {
     }
     function receta_detalles()
     {
-        $this->db->select('v.*, p.*');
+        $this->db->select('v.*, v.id as idp, p.*');
         $this->db->from('receta_detalles v');
         $this->db->join('productos p', 'p.id=v.ingredientes');
         //$this->db->where('v.idUs', $this->session->id);

@@ -28,6 +28,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('Tool_model');
+		$data['recetachef'] = $this->Tool_model->recetaschef();
 		$data['receta'] = $this->Tool_model->recetas();
 		$this->load->view('header');
 		$this->load->view('welcome_message', $data);

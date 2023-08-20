@@ -326,7 +326,6 @@ function update_receta(){
         $datos = array(
             'nombre'=>$this->input->post('nombre'),
             'procedimiento'=>$this->input->post('procedimiento'),
-            'foto'=>$foto,
             'propietario'=>$this->input->post('propietario'),
 
         );
@@ -336,6 +335,31 @@ function update_receta(){
 
     redirect(base_url('welcome/ver/'.$id_receta));
 }
+function uploadFoto() {
+      $this->load->model('tool_model');
+      $id=$this->input->post('id');
+      //$datos['id'] = $id;
+      $datos['foto'] = file_get_contents($_FILES['file']['tmp_name']);
+        //$datos['nombre_archivoEjemplo'] = $_FILES['file']['name'];
+      //echo var_dump($datos);die();
+        ///echo var_dump($datos);die();
+      $this->tool_model->update_receta($id,$datos);   
+    }
+    function cancelarProducto($idp){
+        $this->load->model('tool_model');
+        $this->tool_model->cancelarProducto($idp);
+        redirect(base_url('toolcrib/subproducto'));
+    }
+    function cancelarProductoReceta($idp){
+        $this->load->model('tool_model');
+        $this->tool_model->cancelarProductoReceta($idp);
+        redirect(base_url('toolcrib/receta'));
+    }
+     function cancelarReceta($idp, $idr){
+        $this->load->model('tool_model');
+        $this->tool_model->cancelarReceta($idp);
+        redirect(base_url('toolcrib/editar_receta/'.$idr));
+    }
 
 
 

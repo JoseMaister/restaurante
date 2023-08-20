@@ -76,7 +76,7 @@
                   <td><?= $elem->cantidad ?></td>
                   <td><?= $elem->unidadReceta ?></td>
                   <td>
-                     <a href=<?= base_url("toolcrib/cancelarProducto/".$elem->id); ?>><button type="button"class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Eliminar </button></a>                                                
+                     <a href=<?= base_url("toolcrib/cancelarProductoReceta/".$elem->idtemp); ?>><button type="button"class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Eliminar </button></a>                                                
                   </td>
                </tr>
                <?php }

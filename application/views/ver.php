@@ -78,7 +78,18 @@
       <h3><?= $receta->nombre?></h3>
       <div id="divPadre">
          <div class="ser-icon">
+             <div style="text-align: center; overflow: hidden; margin: 10px;">
             <img src="<?= 'data:image/bmp;base64,' . base64_encode($receta->foto); ?>" class="img-fluid" alt="" />
+            <label class="btn btn-default btn-sm" for="imgReceta">
+                                <input accept="image/png, image/gif, image/jpeg" target="_blank" onchange="uploadFoto();" type="file" class="sr-only" id="imgReceta" name="imgReceta">
+                                            <i class="fa fa-file"></i> Cambiar foto
+                              </label>
+                        <!--<label class="btn btn-default btn-sm" for="file">
+                        <input type=file target="_blank" type="file" class="sr-only" id="file" name="file">
+                        <i class="fa fa-file"></i> Seleccionar Archivo
+                        </label>
+                        <input type="button" id="btn_uploadfile" value="Aceptar" onclick="uploadFile();" class="btn btn-default btn-sm">    -->                 
+                      </div>
          </div>
       </div>
    </div>
@@ -121,3 +132,21 @@
 <script src="<?= base_url('template/js/contact_me.js')?>"></script>
 <!-- ALL PLUGINS -->
 <script src="<?= base_url('template/js/custom.js')?>"></script>
+<script type="text/javascript">
+    function uploadFoto(){
+      var base_url = "<?php echo base_url(); ?>";
+      var RECETA = '<?= $receta->id?>';
+    var files = document.getElementById("imgReceta").files;
+    var file = files[0];
+    var URL = base_url + 'toolcrib/uploadFoto';
+    var formdata = new FormData();
+    formdata.append("file", file);
+    formdata.append("id", RECETA);
+    var ajax = new XMLHttpRequest();
+    ajax.open("POST", URL);
+    ajax.send(formdata);
+    ajax.onload = function(){
+      window.location.reload();
+    }
+  } 
+</script>

@@ -77,7 +77,7 @@
                   
                   <td><?= $elem->unidadReceta ?></td>
                   <td>
-                     <a href=<?= base_url("toolcrib/cancelarProducto/".$elem->id); ?>><button type="button"class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Eliminar </button></a>                                                
+                     <a href=<?= base_url("toolcrib/cancelarReceta/".$elem->idp."/". $receta->id); ?>><button type="button"class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Eliminar </button></a>                                                
                   </td>
                </tr>
                <?php }
@@ -85,7 +85,7 @@
             </tbody>
          </table>
          <div class="p-t-30">
-            <button class="btn btn--radius btn--green" onclick="receta()">Registrar Receta</button>
+            <button class="btn btn--radius btn--green" onclick="receta()">Editar Receta</button>
          </div>
          <?php }
             ?>
@@ -98,7 +98,7 @@
    <div class="modal-dialog modal-md">
       <div class="modal-content">
          <div class="card-body">
-            <h2 class="title" style="color:black;">Registrar Receta</h2>
+            <h2 class="title" style="color:black;">Editar Receta</h2>
             <form method="POST" action=<?= base_url('toolcrib/update_receta') ?>  enctype="multipart/form-data">
                <div class="input-group">
                   <input type="hidden" name="id_receta" value="<?=$receta->id?>">
@@ -121,26 +121,9 @@
                                 </div>
                             </div>
                         </div>
-               <div class="well" data-bind="fileDrag: fileData">
-                  <div class=" row">
-                     <div class="col-md-6">
-                        <img style="height: 125px;" class="img-rounded  thumb" data-bind="attr: { src: fileData().dataURL }, visible: fileData().dataURL">
-                        <div data-bind="ifnot: fileData().dataURL">
-                           <label class="drag-label">Arrastrar Archivo</label>
-                        </div>
-                     </div>
-                     <div class="col-md-6">
-                        <input type="file" name="foto" data-bind="fileInput: fileData, customFileInput: {
-                           buttonClass: 'btn btn-success',
-                           fileNameClass: 'disabled input--style-2',
-                           onClear: onClear,
-                           onInvalidFileDrop: onInvalidFileDrop
-                           }" accept="image/*">
-                     </div>
-                  </div>
-               </div>
+              
                <div class="p-t-30">
-                  <button class="btn btn--radius btn--green" type="submit">Registrar</button>
+                  <button class="btn btn--radius btn--green" type="submit">Editar</button>
                </div>
             </form>
          </div>
