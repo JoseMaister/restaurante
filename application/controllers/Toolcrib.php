@@ -98,8 +98,12 @@ function receta(){
         $ubicacion = $this->input->post('ubicacion');
         $stock = $this->input->post('stock');
         $qtyF=$stock+$qty;
+        $activo=$this->input->post('cbActivo');
         
-
+        $prod= array(
+            'activo'=>'1'
+        );
+        $this->tool_model->updateProd($idp, $prod);
 
         $query = "SELECT * from ubiProds where ubicacion ='".$ubicacion."' and idProd='".$idp."'";
         $result=$this->db->query($query)->result_array();
@@ -359,6 +363,37 @@ function uploadFoto() {
         $this->load->model('tool_model');
         $this->tool_model->cancelarReceta($idp);
         redirect(base_url('toolcrib/editar_receta/'.$idr));
+    }
+    function ajax_productos(){
+        $activo = $this->input->post('activo');
+        $texto=$this->input->post('texto');
+        $query = "SELECT * from productos where 1=1 ";
+        if($activo == "0")
+            {
+                $query .= " and activo = '0'";
+            }
+            else{
+               $query .= " and activo = '1'"; 
+            }
+        if(!empty($texto)){
+          $query .= "and ingrediente like '%" .$texto . "%'";
+        }
+         $res = $this->Conexion->consultar($query);
+        //echo $query;die();
+        if($res)
+        {
+          echo json_encode($res);
+        }
+
+    }
+    function desactivar($id)
+    {
+        $this->load->model('tool_model');
+        $prod= array(
+            'activo'=>'0'
+        );
+        $this->tool_model->updateProd($id, $prod);
+        redirect(base_url('toolcrib/inventario/'));
     }
 
 

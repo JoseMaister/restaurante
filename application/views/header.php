@@ -17,6 +17,7 @@
     <!-- Site Icons -->
     <link rel="shortcut icon" href="<?= base_url('template/images/favicon.ico" type="image/x-icon')?>" />
     <link rel="apple-touch-icon" href="<?= base_url('template/images/apple-touch-icon.png')?>">
+    <link rel="stylesheet" href="<?= base_url('/template/fonts/icomoon/style.css')?>">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url('template/css/bootstrap.min.css')?>">

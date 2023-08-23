@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-08-2023 a las 00:41:53
+-- Tiempo de generación: 23-08-2023 a las 22:20:11
 -- Versión del servidor: 8.0.34-0ubuntu0.20.04.1
 -- Versión de PHP: 7.4.3-4ubuntu2.19
 
@@ -69,8 +69,19 @@ CREATE TABLE `productos` (
   `preciodlls` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `preciounitario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `unidadEmpaque` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `subproducto` int DEFAULT '0'
+  `subproducto` int DEFAULT '0',
+  `activo` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `proveedor`, `ingrediente`, `cantidadEmpaque`, `unidadReceta`, `preciodlls`, `preciounitario`, `unidadEmpaque`, `subproducto`, `activo`) VALUES
+(28, 'Ejemplo', 'Tomate', '10', '2', '10', '1.5', 'LB', 0, 0),
+(29, 'hgf', 'aguacate', '12', '-2', '12', '1.2', 'LB', 0, 0),
+(30, 'HOLISO', 'Cebolla', '1', '0.5', '.8', '.8', 'LB', 0, 0),
+(31, 'tomato', 'Tomate', '1', '1', '0.3', '0.3', 'LB', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -136,6 +147,15 @@ CREATE TABLE `ubiProds` (
   `ubicacion` varchar(50) NOT NULL,
   `cantidad` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `ubiProds`
+--
+
+INSERT INTO `ubiProds` (`idUbi`, `idProd`, `ubicacion`, `cantidad`) VALUES
+(7, 28, '', 9),
+(8, 28, 'Refrigerador 1', 1),
+(9, 28, '4r', 2);
 
 -- --------------------------------------------------------
 
@@ -266,7 +286,7 @@ ALTER TABLE `movimientostool`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `receta`
@@ -284,7 +304,7 @@ ALTER TABLE `receta_detalles`
 -- AUTO_INCREMENT de la tabla `receta_temp`
 --
 ALTER TABLE `receta_temp`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `subproductos`
@@ -296,7 +316,7 @@ ALTER TABLE `subproductos`
 -- AUTO_INCREMENT de la tabla `ubiProds`
 --
 ALTER TABLE `ubiProds`
-  MODIFY `idUbi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idUbi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `ubiprods`
@@ -308,7 +328,7 @@ ALTER TABLE `ubiprods`
 -- AUTO_INCREMENT de la tabla `VentTCTemp`
 --
 ALTER TABLE `VentTCTemp`
-  MODIFY `idvt` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idvt` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `venttoolcrib`

@@ -83,7 +83,9 @@ class Tool_model extends CI_Model {
     }
 
     public function productos(){
-        $query = $this->db->get('productos');
+        $this->db->from('productos ');
+        $this->db->where('activo','1');
+        $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query;
         } else {
@@ -409,7 +411,7 @@ class Tool_model extends CI_Model {
     }
 
     function updateProd($idp,$data){
-        $this->db->where('idProducto', $idp);
+        $this->db->where('id', $idp);
         $this->db->update('productos', $data);
     }
     function updateVenta($idVenta,$data){

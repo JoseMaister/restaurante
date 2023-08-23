@@ -29,8 +29,8 @@
                   <td><?= $elem->cantidadEmpaque ?></td>
                   <td><?= $elem->unidadReceta ?></td>
                   <td><?= $elem->unidadEmpaque ?></td>
-                  <td><?= $elem->preciodlls ?></td>
-                  <td><?= $elem->preciounitario ?></td>
+                  <td><?= "$".number_format($elem->preciodlls,2) ?></td>
+                  <td><?= "$".number_format($elem->preciounitario,2) ?></td>
                   <td>
                      <form method="POST" action=<?= base_url('toolcrib/registrarRecetaTemp') ?>>
                         <input id='cantidad'  type='number' name='cantidad' min='0' max='10' class='border' style="width: 115px;" required>
@@ -76,7 +76,7 @@
                   <td><?= $elem->cantidad ?></td>
                   <td><?= $elem->unidadReceta ?></td>
                   <td>
-                     <a href=<?= base_url("toolcrib/cancelarProductoReceta/".$elem->idtemp); ?>><button type="button"class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Eliminar </button></a>                                                
+                     <a href=<?= base_url("toolcrib/cancelarProductoReceta/".$elem->idtemp); ?>><button type="button"class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Eliminar </button></a>                                                
                   </td>
                </tr>
                <?php }
